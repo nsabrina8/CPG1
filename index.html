@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Cawangan Perkhidmatan Geodataweb 1</title>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
-</head>
+</head>k
+
 <body>
   <div id="app">Loading...</div>
   <script>
@@ -14,5 +16,33 @@
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script>
+    window.$docsify = {
+      loadSidebar: true,   // 👈 enable sidebar
+      subMaxLevel: 2       // 👈 show 2 levels of nesting
+    }
+  </script>
+  <script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+  <script>
+    window.$docsify = {
+      loadSidebar: true,
+      subMaxLevel: 2,
+      plugins: [
+        function (hook, vm) {
+          hook.beforeEach(function (content) {
+            var pass = prompt('Enter password:');
+            if (pass !== 'mypassword') {
+              alert('Wrong password!');
+              return ''; // block content
+            }
+            return content;
+          });
+        }
+      ]
+    }
+  </script>
+
+
 </body>
+
 </html>
